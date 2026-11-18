@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BEdry – sušilec za mokra oblačila in obutev</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;800&display=swap">
+<style>
+:root{--bg:#F5F8F8;--surface:#fff;--ink:#0E2A31;--muted:#53666C;--brand:#0E5C6B;--warm:#F28C28;--warm-soft:#FFE3C2;--line:#D3DFE1;--on-brand:#fff;color-scheme:light;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0A1A1F;--surface:#112830;--ink:#E7F1F3;--muted:#94ABB1;--brand:#4FB7C9;--warm:#FFA64D;--warm-soft:#3A2A14;--line:#23404A;--on-brand:#0A1A1F;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0A1A1F;--surface:#112830;--ink:#E7F1F3;--muted:#94ABB1;--brand:#4FB7C9;--warm:#FFA64D;--warm-soft:#3A2A14;--line:#23404A;--on-brand:#0A1A1F;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Figtree",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6;font-size:1.0625rem}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+header{padding:20px 0}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-weight:800;font-size:1.5rem;letter-spacing:-.02em;color:var(--brand);text-decoration:none}
+nav{display:flex;gap:20px;flex-wrap:wrap}
+nav a{color:var(--ink);text-decoration:none;font-weight:600;font-size:.95rem}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--warm);outline-offset:3px}
+.hero{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:center;padding:48px 0 72px}
+h1{margin:0 0 20px;font-size:clamp(2.25rem,6vw,4rem);line-height:1.05;font-weight:800;letter-spacing:-.03em}
+.lead{margin:0 0 32px;font-size:1.2rem;color:var(--muted);max-width:52ch}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:14px 24px;border-radius:12px;font:inherit;font-weight:600;text-decoration:none;cursor:pointer;border:2px solid var(--brand);background:var(--brand);color:var(--on-brand)}
+.btn.alt{background:transparent;color:var(--ink);border-color:var(--line)}
+.stage{position:relative;display:flex;justify-content:center;align-items:flex-end;height:460px;background:linear-gradient(180deg,var(--warm-soft),transparent 85%);border-radius:24px;overflow:hidden}
+.unit{position:relative;width:112px;height:420px;border-radius:18px 18px 8px 8px;background:var(--brand);box-shadow:inset 0 0 0 4px rgba(255,255,255,.14);display:flex;flex-direction:column;align-items:center;padding-top:28px;gap:14px}
+.unit i{display:block;width:12px;height:12px;border-radius:50%;background:var(--warm)}
+.unit b{display:block;width:64px;height:3px;border-radius:2px;background:rgba(255,255,255,.35)}
+.air{position:absolute;bottom:60px;width:70px;height:300px;border-radius:50% 50% 0 0;border:3px solid var(--warm);border-bottom:0;opacity:0;animation:air 3.6s ease-out infinite}
+.air.l{left:calc(50% - 150px)}.air.r{right:calc(50% - 150px)}.air.l2{left:calc(50% - 120px);animation-delay:1.2s}.air.r2{right:calc(50% - 120px);animation-delay:1.2s}
+@keyframes air{0%{opacity:0;transform:scaleY(.6)}30%{opacity:.7}100%{opacity:0;transform:scaleY(1.05)}}
+section{padding:64px 0;border-top:1px solid var(--line)}
+h2{margin:0 0 12px;font-size:clamp(1.75rem,4vw,2.5rem);line-height:1.15;letter-spacing:-.02em}
+.sub{margin:0 0 40px;color:var(--muted);max-width:60ch}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
+.item h3{margin:0 0 6px;font-size:1.15rem}
+.item p{margin:0;color:var(--muted)}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;counter-reset:s}
+.steps li{counter-increment:s;padding-top:16px;border-top:4px solid var(--warm)}
+.steps li::before{content:counter(s);display:block;font-size:2.25rem;font-weight:800;color:var(--brand);line-height:1.1}
+.steps h3{margin:4px 0 6px}.steps p{margin:0;color:var(--muted)}
+.prog{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px}
+.prog h3{margin:0 0 6px}.prog p{margin:0;color:var(--muted)}
+.prog.eco{border-color:var(--brand);border-width:2px}
+table{width:100%;border-collapse:collapse;background:var(--surface);border-radius:12px;overflow:hidden}
+th,td{text-align:left;padding:14px 18px;border-bottom:1px solid var(--line);vertical-align:top}
+th{width:38%;font-weight:600;color:var(--muted)}
+.scroll{overflow-x:auto}
+.price{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:32px}
+.price.feat{border:2px solid var(--brand)}
+.price .amt{font-size:2.5rem;font-weight:800;letter-spacing:-.02em;line-height:1.1;margin:8px 0}
+.price small{color:var(--muted);font-size:1rem;font-weight:400}
+.price p{margin:0;color:var(--muted)}
+form{display:grid;gap:16px;max-width:560px}
+label{display:grid;gap:6px;font-weight:600}
+input,textarea{font:inherit;padding:12px 14px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+footer{padding:32px 0 48px;border-top:1px solid var(--line);color:var(--muted);font-size:.95rem}
+@media (max-width:780px){.hero{grid-template-columns:1fr;gap:32px;padding-top:24px}.stage{height:380px}.unit{height:340px}nav{display:none}}
+@media (prefers-reduced-motion:reduce){.air{animation:none;opacity:.4}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="logo" href="#top">BEdry</a>
+<nav aria-label="Glavna navigacija"><a href="#delovanje">Delovanje</a><a href="#znacilnosti">Značilnosti</a><a href="#tehnicno">Tehnični podatki</a><a href="#cenik">Cenik</a><a href="#kontakt">Kontakt</a></nav></div></header>
+
+<main id="top">
+<div class="wrap hero">
+  <div>
+    <h1>Mokri pridete v stavbo, suhi greste naprej.</h1>
+    <p class="lead">BEdry je samostoječi sušilec za šole, podjetja in športne dvorane. Nežen topel zrak hitro osuši mokra oblačila in obutev že ob vhodu, tiho in higiensko.</p>
+    <div class="btns"><a class="btn" href="#kontakt">Zahtevajte ponudbo</a><a class="btn alt" href="#cenik">Oglejte si cenik</a></div>
+  </div>
+  <div class="stage" role="img" aria-label="Ilustracija sušilca BEdry s toplim zrakom okoli">
+    <span class="air l"></span><span class="air l2"></span><span class="air r"></span><span class="air r2"></span>
+    <div class="unit"><i></i><b></b><b></b><b></b><b></b><b></b><b></b></div>
+  </div>
+</div>
+
+<section id="delovanje"><div class="wrap">
+  <h2>Kako deluje</h2>
+  <p class="sub">Uporabnik ne pritiska ničesar. Naprava vse opravi sama.</p>
+  <ol class="steps">
+    <li><h3>Stopite v sušilec</h3><p>Senzor prisotnosti zazna uporabnika in zažene sušenje.</p></li>
+    <li><h3>Senzorji prilagodijo delovanje</h3><p>Naprava zazna vašo višino in vlažnost oblačil ter prilagodi zračni tok, moč in trajanje.</p></li>
+    <li><h3>Odidete suhi</h3><p>Topel zrak osuši jakno in čevlje, vi pa greste v razred, pisarno ali garderobo.</p></li>
+  </ol>
+</div></section>
+
+<section id="znacilnosti"><div class="wrap">
+  <h2>Značilnosti</h2>
+  <p class="sub">Zasnovano za prostore, kjer ga uporablja veliko ljudi vsak dan.</p>
+  <div class="grid">
+    <div class="item"><h3>Sušenje oblačil in obutve</h3><p>Usmerjen topel zrak učinkovito osuši zunanja oblačila in čevlje.</p></div>
+    <div class="item"><h3>Nastavitev višine</h3><p>Senzorji samodejno zaznajo višino uporabnika in prilagodijo zračni tok.</p></div>
+    <div class="item"><h3>Zaznavanje vlage</h3><p>Moč in trajanje sušenja se prilagodita vlažnosti oblačil.</p></div>
+    <div class="item"><h3>Tiho delovanje</h3><p>Ventilatorji z nizko ravnjo hrupa so primerni za šolske hodnike in pisarne.</p></div>
+    <div class="item"><h3>Eko način</h3><p>Varčen program z nižjo porabo energije in optimiziranim časom sušenja.</p></div>
+    <div class="item"><h3>Razkuževalna funkcija</h3><p>Dodatna funkcija (toplota, UV ali ionizacija) zmanjša prisotnost mikroorganizmov na oblačilih in obutvi.</p></div>
+    <div class="item"><h3>Varnost</h3><p>Varovalo proti pregrevanju, tipka za izklop v sili in senzor prisotnosti uporabnika.</p></div>
+    <div class="item"><h3>Preprosta namestitev</h3><p>Samostoječa enota z možnostjo pritrditve na tla ali steno.</p></div>
+  </div>
+</div></section>
+
+<section id="programi"><div class="wrap">
+  <h2>Programi sušenja</h2>
+  <p class="sub">Trije prednastavljeni programi, po želji pa lahko nastavitve prilagodite ročno.</p>
+  <div class="grid">
+    <div class="prog"><h3>Hitro sušenje</h3><p>Za trenutke, ko je čas kratek.</p></div>
+    <div class="prog"><h3>Standardno</h3><p>Uravnotežen program za vsakodnevno uporabo.</p></div>
+    <div class="prog eco"><h3>Eko</h3><p>Nižja poraba energije in optimiziran čas sušenja.</p></div>
+  </div>
+</div></section>
+
+<section id="tehnicno"><div class="wrap">
+  <h2>Tehnični podatki</h2>
+  <p class="sub">Približne vrednosti.</p>
+  <div class="scroll"><table>
+    <tr><th>Višina</th><td>cca 200 cm</td></tr>
+    <tr><th>Širina</th><td>50 cm</td></tr>
+    <tr><th>Globina</th><td>50 cm</td></tr>
+    <tr><th>Material ohišja</th><td>Robustno prašno barvano jeklo (po želji inox)</td></tr>
+    <tr><th>Namestitev</th><td>Samostoječa enota, možna pritrditev na tla ali steno</td></tr>
+    <tr><th>Primerno za</th><td>Šole, podjetja, športne dvorane</td></tr>
+  </table></div>
+</div></section>
+
+<section id="cenik"><div class="wrap">
+  <h2>Cenik</h2>
+  <p class="sub">Izberite nakup ali najem. Vse cene so brez DDV.</p>
+  <div class="grid">
+    <div class="price feat"><p>Nakup</p><div class="amt">4.999,00 €</div><p>+ DDV, enkraten strošek</p></div>
+    <div class="price"><p>Najem</p><div class="amt">249,00 € <small>/ mesec</small></div><p>+ DDV</p></div>
+  </div>
+</div></section>
+
+<section id="kontakt"><div class="wrap">
+  <h2>Zahtevajte ponudbo</h2>
+  <p class="sub">Pošljite nam kratko povpraševanje, odprl se bo vaš e-poštni program. Pokličete nas lahko tudi na +386 (0)5 620 56 10.</p>
+  <form id="f">
+    <label>Ime in priimek<input name="ime" required autocomplete="name"></label>
+    <label>Ustanova ali podjetje<input name="org" autocomplete="organization"></label>
+    <label>Vaša e-pošta<input name="mail" type="email" required autocomplete="email"></label>
+    <label>Sporočilo<textarea name="msg" rows="4" placeholder="Koliko enot potrebujete? Nakup ali najem?"></textarea></label>
+    <button class="btn" type="submit">Pošlji povpraševanje</button>
+  </form>
+</div></section>
+</main>
+<footer><div class="wrap"><strong>BEdry d.o.o.</strong>, proizvodnja in prodaja sušilnih aparatov<br>Šolski center Nova Gorica, Srednja ekonomska in trgovska šola, Cankarjeva ulica 10, 5000 Nova Gorica<br>Tel.: +386 (0)5 620 56 10 · E-pošta: <a href="mailto:up.bedry@cups.si">up.bedry@cups.si</a><br>Uradne ure: torek in četrtek od 11:00 do 12:35</div></footer>
+
+<script>
+var EMAIL="up.bedry@cups.si";
+document.getElementById("f").addEventListener("submit",function(e){
+  e.preventDefault();
+  var f=e.target,body="Ime: "+f.ime.value+"\nUstanova: "+f.org.value+"\nE-pošta: "+f.mail.value+"\n\n"+f.msg.value;
+  location.href="mailto:"+EMAIL+"?subject="+encodeURIComponent("Povpraševanje BEdry")+"&body="+encodeURIComponent(body);
+});
+</script>
+</body>
+</html>
